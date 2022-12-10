@@ -6,11 +6,14 @@ const date = require(__dirname + "/date")
 require("dotenv").config()
 
 // Constants
-const todos = []
 const app = express()
 const port = process.env.PORT || 3000;
 const today = date.getDay();
 const mongo_url = process.env.MONGO_URL
+let error = false
+const errorMessage = "Please Enter a valid name for To-Do."
+
+
 
 // App Methods
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -35,13 +38,15 @@ const Item = mongoose.model("Item", itemSchema);
 app.get("/", (req, res) => {
     Item.find({}, (err, items) => {
         if (err) throw (err)
-
-        res.render("list", { listTitle: today, todos: items });
+        res.render("list", { listTitle: today, todos: items, error, errorMessage });
     })
-    // res.render("list", { "listTitle": today, "todos": todos });
 })
 app.post("/", (req, res) => {
-    const todo = req.body.todo;
+    const todo = (req.body.todo).trim();
+    if (todo == "") {
+        error = true;
+        res.redirect("/")
+    }
     const item = new Item({
         name: todo
     })
@@ -51,13 +56,12 @@ app.post("/", (req, res) => {
 
 app.post("/delete", (req, res) => {
     const todo_id = req.body.deleteTodo;
-    console.log(todo_id)
     Item.findByIdAndRemove(todo_id, (err) => {
-        err ? console.log(err) : console.log("Successfully Deleted todo with id " + todo_id)
+        if(err) throw (err) 
+         console.log("Successfully Deleted todo with id " + todo_id)
     })
     res.redirect("/")
 })
-
 
 
 app.listen(port, () => {
