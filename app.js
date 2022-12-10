@@ -22,12 +22,10 @@ app.set("view engine", "ejs")
 
 
 // Database
-
 mongoose.connect(mongo_url, { useNewUrlParser: true }, (err) => {
     if (err) throw err;
     console.log("DB Connected successfully");
 });
-
 const itemSchema = {
     name: String
 }
@@ -63,6 +61,10 @@ app.post("/delete", (req, res) => {
     res.redirect("/")
 })
 
+app.post("/error", (req, res) => {
+    error = false;
+    res.redirect("/")
+})
 
 app.listen(port, () => {
     console.log(`Server is Running on Port ${port}`)
