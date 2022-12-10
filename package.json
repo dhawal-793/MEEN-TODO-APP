@@ -1,0 +1,20 @@
+{
+  "name": "meen-todo-app",
+  "version": "1.0.0",
+  "description": "Simple ToDo App created using MongoDb ExpressJs EJs and NodeJs.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dhawal-793/MEEN-TODO-APP.git"
+  },
+  "keywords": [],
+  "author": "Dhawal Vijayvargiya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dhawal-793/MEEN-TODO-APP/issues"
+  },
+  "homepage": "https://github.com/dhawal-793/MEEN-TODO-APP#readme"
+}
