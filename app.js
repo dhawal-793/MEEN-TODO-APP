@@ -13,7 +13,7 @@ app.use(express.static(__dirname+"/public"))
 app.set("view engine", "ejs")
 
 app.get("/",(req, res)=> {
-    res.render("index",{"listTitle":"ToDoList","todos":todos});
+    res.render("list",{"listTitle":"ToDoList","todos":todos});
 })
 app.post("/",(req, res)=> {
     const todo = req.body.todo;
