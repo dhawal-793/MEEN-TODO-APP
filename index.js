@@ -9,10 +9,10 @@ const port = 3000;
 
 
 app.use(bodyParser.urlencoded({extended:true}))
-
+app.set("view engine", "ejs")
 
 app.get("/",(req, res)=> {
-    res.sendFile(__dirname+"/index.html")
+    res.render("index");
 })
 app.post("/",(req, res)=> {
     const todo = req.body.todo;
