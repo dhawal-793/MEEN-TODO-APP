@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 
 const todos=[]
 const app = express()
-const port = 3000;
+const port = process.env.PORT || 3000;
 const date = new Date();
 const options = {
     weekday: "long",
