@@ -69,7 +69,7 @@
     margin-left: 20px;
   }
   
-  button {
+  button[name="Add"] {
     min-height: 50px;
     width: 50px;
     border-radius: 50%;
@@ -100,7 +100,28 @@
     color: grey;
     opacity: 1;
   }
-  
+  .modal{
+    background-color: red;
+    border-radius: 1.2rem;
+    color:white;
+    padding: 2rem;
+    width: 80vw;
+    max-width: 500px;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+#errorbtn{
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
   footer {
     color: white;
     color: rgba(0, 0, 0, 0.5);
