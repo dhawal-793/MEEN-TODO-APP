@@ -2,21 +2,37 @@
 <div class="box" id="heading">
   <h1><%= listTitle%></h1>
 </div>
+
+<% if(error){ %>
+<div class="modal">
+  <form action="/error" method="post">
+    <p><%= errorMessage%></p>
+    <button type="submit" id="errorbtn">x</button>
+  </form>
+</div>
+<% }%>
+
 <div class="todos">
   <div class="box">
     <form action="/" method="post" class="item">
       <input
         type="text"
-        name="newItem"
+        name="todo"
         placeholder="New Item"
         autocomplete="off"
+        required
       />
-      <button type="submit" name="list" value="<%=listTitle%>">+</button>
+      <button type="submit" name="Add" value="<%=listTitle%>">+</button>
     </form>
     <% todos.forEach((todo)=>{ %>
     <form action="/delete" method="post">
       <div class="item">
-        <input type="checkbox" name="deleteTodo" value="<%= todo._id%>" onchange="this.form.submit()"/>
+        <input
+          type="checkbox"
+          name="deleteTodo"
+          value="<%= todo._id%>"
+          onchange="this.form.submit()"
+        />
         <p><%= todo.name %></p>
       </div>
     </form>
