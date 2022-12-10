@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 
 
 
-
+const todos=[]
 const app = express()
 const port = 3000;
 
@@ -15,7 +15,11 @@ app.get("/",(req, res)=> {
     res.sendFile(__dirname+"/index.html")
 })
 app.post("/",(req, res)=> {
-    console.log(req.body.todo)
+    const todo = req.body.todo;
+    todos.push(todo);
+    todos.forEach(todo => {
+        console.log(todo)
+    })
     res.redirect("/")
 })
 
