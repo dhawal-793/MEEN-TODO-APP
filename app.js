@@ -1,18 +1,13 @@
 const express = require("express")
 const bodyParser = require("body-parser");
+const date =require(__dirname+"/date")
 
 
 
 const todos=[]
 const app = express()
 const port = process.env.PORT || 3000;
-const date = new Date();
-const options = {
-    weekday: "long",
-    day: "numeric",
-    month: "long"
-}
-const today=date.toLocaleDateString("en-us",options)
+const today = date.getDay();
 
 
 app.use(bodyParser.urlencoded({ extended: true }))
