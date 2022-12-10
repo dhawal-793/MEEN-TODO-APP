@@ -49,7 +49,15 @@ app.post("/", (req, res) => {
     res.redirect("/")
 })
 
+app.post("/delete", (req, res) => {
+    const todo_id = req.body.deleteTodo;
+    console.log(todo_id)
+    res.redirect("/")
+})
+
+
 
 app.listen(port, () => {
     console.log(`Server is Running on Port ${port}`)
 })
+
