@@ -1,0 +1,8 @@
+<% if(error){ %>
+    <div class="modal">
+      <form action="/error" method="post">
+        <p><%= errorMessage%></p>
+        <button type="submit" id="errorbtn">x</button>
+      </form>
+    </div>
+    <% }%>
