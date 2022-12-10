@@ -52,6 +52,9 @@ app.post("/", (req, res) => {
 app.post("/delete", (req, res) => {
     const todo_id = req.body.deleteTodo;
     console.log(todo_id)
+    Item.findByIdAndRemove(todo_id, (err) => {
+        err ? console.log(err) : console.log("Successfully Deleted todo with id " + todo_id)
+    })
     res.redirect("/")
 })
 
