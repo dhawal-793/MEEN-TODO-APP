@@ -1,15 +1,24 @@
 <%- include('header');-%>
-<h1>Title</h1>
-
-<form action="/" method="POST">
-  <input type="text" name="todo" />
-  <button type="submit" name="submit" value="todo">+</button>
-</form>
-
-<ul>
-  <% todos.forEach(todo => { %>
-  <li><%= todo %></li>
-
-  <% })%>
-</ul>
+<div class="box" id="heading">
+    <h1><%= listTitle%></h1>
+  </div>
+  <div class="todos">
+    <div class="box">
+      <form action="/" method="post" class="item">
+        <input
+          type="text"
+          name="newItem"
+          placeholder="New Item"
+          autocomplete="off"
+        />
+        <button type="submit" name="list" value="<%=listTitle%>">+</button>
+      </form>
+      <% todos.forEach((todo)=>{ %>
+      <div class="item">
+        <input type="checkbox" />
+        <p><%= todo %></p>
+      </div>
+      <% })%>
+    </div>
+  </div>
 <%- include('footer');-%>
