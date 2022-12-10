@@ -3,14 +3,7 @@
   <h1><%= listTitle%></h1>
 </div>
 
-<% if(error){ %>
-<div class="modal">
-  <form action="/error" method="post">
-    <p><%= errorMessage%></p>
-    <button type="submit" id="errorbtn">x</button>
-  </form>
-</div>
-<% }%>
+<%- include("error"); -%>
 
 <div class="todos">
   <div class="box">

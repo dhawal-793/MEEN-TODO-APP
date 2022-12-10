@@ -43,12 +43,13 @@ app.post("/", (req, res) => {
     const todo = (req.body.todo).trim();
     if (todo == "") {
         error = true;
-        res.redirect("/")
     }
-    const item = new Item({
-        name: todo
-    })
-    item.save();
+    else {
+        const item = new Item({
+            name: todo
+        })
+        item.save();
+    }
     res.redirect("/")
 })
 
